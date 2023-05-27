@@ -21,8 +21,9 @@ class BST {
             root->left = addNODE(root->left, value);
         } else if (root->value < value) {
             root->right = addNODE(root->right, value);
-        } else
+        } else {
             root->count += 1;
+        }
         return root;
     }
     int heightTree(NODE* root) {
@@ -43,7 +44,7 @@ class BST {
     }
     int depth() { return heightTree(root) - 1; }
     int search(const T& value) {
-        NODE* current = serachTree(root, value);
+        NODE* current = searchTree(root, value);
         if (current == nullptr) return 0;
         else return current->count;
     }
