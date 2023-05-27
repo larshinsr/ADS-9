@@ -15,7 +15,7 @@ class BST {
             root = new NODE;
             root->value = value;
             root->count = 1;
-            roo1->left = root->right = nullptr;
+            root->left = root->right = nullptr;
         } else if (root->value > value) {
             root->left = addNODE(root->left, value);
         } else if (root->value < value) {
@@ -38,7 +38,7 @@ class BST {
    public:
     BST() : root(nullptr) {}
     void add(const T&) {
-        root = addNODE(const T& value) { root = addNODE(root, value); }
+        root = addNODE(root, value);
     }
     int depth() { return heightTree(root) - 1; }
     int search(const T& value) {
