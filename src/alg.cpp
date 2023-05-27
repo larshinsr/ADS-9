@@ -11,8 +11,8 @@ BST<std::string> makeTree(const char* filename) {
     std::string result;
     while (!file.eof()) {
         char symbol = tolower(file.get());
-        if (isalpha(ch)) {
-            result += ch;
+        if (isalpha(symbol)) {
+            result += symbol;
         } else {
             BSTtree.add(result);
             result = "";
