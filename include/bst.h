@@ -37,9 +37,9 @@ class BST {
             return searchTree(root->left, value);
     }
 
-   public:
+ public:
     BST() : root(nullptr) {}
-    void add(const T&) {
+    void add(const T& value) {
         root = addNODE(root, value);
     }
     int depth() { return heightTree(root) - 1; }
