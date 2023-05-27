@@ -13,8 +13,8 @@ BST<std::string> makeTree(const char* filename) {
         if (symbol >= 'a' && symbol <= 'z') {
            result+=symbol;
         }
-        if(symbol>='A'&&symbol<='Z'){
-            symbol=symbol+('a'-'A');
+        if (symbol >= 'A'&&symbol <= 'Z') {
+            symbol = symbol+('a'-'A');
             BSTtree.add(result);
             result+=symbol;
         }
