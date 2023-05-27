@@ -36,7 +36,7 @@ class BST {
         else
             return searchTree(root->left, value);
     }
-
+ 
  public:
     BST() : root(nullptr) {}
     void add(const T& value) {
@@ -45,8 +45,11 @@ class BST {
     int depth() { return heightTree(root) - 1; }
     int search(const T& value) {
         NODE* current = searchTree(root, value);
-        if (current == nullptr) return 0;
-        else return current->count;
+        if (current == nullptr) {
+            return 0; 
+        } else { 
+            return current->count; 
+        }
     }
 };
 #endif  // INCLUDE_BST_H_
