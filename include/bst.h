@@ -17,22 +17,20 @@ class BST {
             root->value = value;
             root->count = 1;
             root->left = root->right = nullptr;
-        } 
-        else if (root->value > value)
+        } else if (root->value > value) {
             root->left = addNODE(root->left, value);
-        else if (root->value < value)
+        } else if (root->value < value) {
             root->right = addNODE(root->right, value);
-        else
+        } else
             root->count += 1;
         return root;
     }
     int heightTree(NODE* root) {
         return std::max(heightTree(root->left), heightTree(root->left)) + 1;
     }
-    NODE* serachTree(NODE* root, const T& value) {
-        if (root == nullptr || root->data == value) return root;
-
-        if (value > root->data)
+    NODE* searchTree(NODE* root, const T& value) {
+        if (root == nullptr || root->value == value) return root;
+        if (value > root->value)
             return searchTree(root->right, value);
         else
             return searchTree(root->left, value);
