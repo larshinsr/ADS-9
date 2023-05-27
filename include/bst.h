@@ -36,7 +36,7 @@ class BST {
         else
             return searchTree(root->left, value);
     }
-    
+
  public:
     BST() : root(nullptr) {}
     void add(const T& value) {
