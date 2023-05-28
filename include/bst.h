@@ -1,6 +1,6 @@
 // Copyright 2021 NNTU-CS
-#ifndef INCLUDE_BST_H
-#define INCLUDE_BST_H
+#ifndef INCLUDE_BST_H_
+#define INCLUDE_BST_H_
 #include <algorithm>
 template <typename T>
 class BST {
@@ -21,9 +21,7 @@ class BST {
             root->left = addNODE(root->left, value);
         } else if (root->value < value) {
             root->right = addNODE(root->right, value);
-        } else {
-            root->count += 1;
-        }
+        } else { root->count += 1; }
         return root;
     }
     int heightTree(NODE* root) {
@@ -35,7 +33,7 @@ class BST {
         if (value < root->value) return searchTree(root->left, value);
         return searchTree(root->right, value);
     }
- 
+
  public:
     BST() : root(nullptr) {}
     void add(const T& value) { root = addNODE(root, value); }
