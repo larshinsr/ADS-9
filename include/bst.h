@@ -1,17 +1,17 @@
 // Copyright 2021 NNTU-CS
-#ifndef INCLUDE_BST_H_
-#define INCLUDE_BST_H_
-#include<algorithm>
+#ifndef INCLUDE_BST_H
+#define INCLUDE_BST_H
+#include <algorithm>
 template <typename T>
 class BST {
- private:
+   private:
     struct NODE {
         T value;
         int count;
         NODE *left, *right;
     };
     NODE* root;
-    NODE* addNODE(NODE*, const T& value) {
+    NODE* addNODE(NODE* root, const T& value) {
         if (root == nullptr) {
             root = new NODE;
             root->value = value;
@@ -27,29 +27,26 @@ class BST {
         return root;
     }
     int heightTree(NODE* root) {
-        return std::max(heightTree(root->left), heightTree(root->left)) + 1;
+        if (root == nullptr) return 0;
+        return std::max(heightTree(root->left), heightTree(root->right)) + 1;
     }
     NODE* searchTree(NODE* root, const T& value) {
         if (root == nullptr || root->value == value) return root;
-        if (value > root->value)
-            return searchTree(root->right, value);
-        else
-            return searchTree(root->left, value);
+        if (value < root->value) return searchTree(root->left, value);
+        return searchTree(root->right, value);
     }
 
- public:
+   public:
     BST() : root(nullptr) {}
-    void add(const T& value) {
-        root = addNODE(root, value);
-    }
+    void add(const T& value) { root = addNODE(root, value); }
     int depth() { return heightTree(root) - 1; }
     int search(const T& value) {
         NODE* current = searchTree(root, value);
-        if (current == nullptr) {
+        if (current == nullptr){
             return 0;
         } else {
             return current->count;
         }
     }
 };
-#endif  // INCLUDE_BST_H_
+#endif
