@@ -5,18 +5,29 @@
 #include <cstdlib>
 #include <cctype>
 #include "bst.h"
+char parse(char* symbol) {
+    if ((*symbol >= 'A' && *symbol <= 'Z') || (*symbol >= 'a' && *symbol <= 'z')) {
+        if (*symbol >= 'A' && *symbol <= 'Z') {
+            *symbol = *symbol + ('a' - 'A');
+        }
+        return *symbol;
+    }
+    return *symbol;
+}
+
 BST<std::string> makeTree(const char* filename) {
     BST<std::string> BSTtree;
     std::ifstream file(filename);
     std::string result;
     while (!file.eof()) {
-        char symbol = tolower(file.get());
-        if (isalpha(symbol)) {
+        char symbol = file.get();
+        symbol = parse(&symbol);
+        if (symbol >= 'a' && symbol <= 'z') 
             result += symbol;
-        } else {
+        else {
             BSTtree.add(result);
-            result = "";
-        }
+            result.clear();
+        }   
     }
     return BSTtree;
 }
