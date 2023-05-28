@@ -3,7 +3,6 @@
 #include <fstream>
 #include <locale>
 #include <cstdlib>
-#include <cctype>
 #include "bst.h"
 char parse(char* symbol) {
     if ((*symbol >= 'A' && *symbol <= 'Z') || (*symbol >= 'a' && *symbol <= 'z')) {
